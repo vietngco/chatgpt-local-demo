@@ -80,3 +80,16 @@ Open the `index.html` file and locate the following line
 ```
 
 Run the application again. It should use localhost for local API inteference.
+
+## Start the app with docker 
+1. **Run API server**
+```
+docker build -t api-server -f Dockerfile_api . 
+docker run -d -p 8000:8000 api-server
+```
+
+2. **Run UI server**
+```
+docker build -t api-server -f Dockerfile_ui .
+docker run -d -p 8080:8080 ui-server
+```
