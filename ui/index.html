@@ -82,7 +82,9 @@
   const chatGPTKey = 'sk-*****'; // Create an API key from here
 
   // Local GPT
-  const OPEN_AI_ENDPOINT = 'http://localhost:8000/v1'
+  // const OPEN_AI_ENDPOINT = 'http://localhost:8000/v1'
+  // express api endpoint
+  const OPEN_AI_ENDPOINT = 'http://localhost:3000/ai'
 
   createApp({
     setup() {
@@ -103,7 +105,6 @@
 
       async function sendMessage() {
         if (!userInput.value.trim()) return;
-
         // Append user message
         messages.value.push({
           role: 'user',
@@ -131,6 +132,7 @@
           );
 
           // Append ChatGPT response
+          console.log("viet:", response)
           messages.value.push({
             role: 'assistant',
             content: response.data.choices[0].message.content
